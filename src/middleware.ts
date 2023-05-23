@@ -15,17 +15,12 @@ export default async function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // strip trailing slash otherwise
   if (pathname.endsWith('/')) {
-    // !pathname.match(/((?!\.well-known(?:\/.*)?)(?:[^/]+\/)*[^/]+\.\w+)/)
-    // req.nextUrl.pathname += '/';
-
     const url = new NextURL(
       req.nextUrl.pathname.replace(/\/$/, ''),
       req.nextUrl
     );
 
-    // console.log('Redirect to ' + url);
     return NextResponse.redirect(url);
   }
 }
