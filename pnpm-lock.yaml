@@ -10,9 +10,6 @@ dependencies:
   '@types/react-dom':
     specifier: 18.2.4
     version: 18.2.4
-  async-listen:
-    specifier: ^3.0.0
-    version: 3.0.0
   autoprefixer:
     specifier: 10.4.14
     version: 10.4.14(postcss@8.4.23)
@@ -54,6 +51,9 @@ devDependencies:
   bufferutil:
     specifier: ^4.0.7
     version: 4.0.7
+  fs-extra:
+    specifier: ^11.1.1
+    version: 11.1.1
   utf-8-validate:
     specifier: ^6.0.3
     version: 6.0.3
@@ -527,11 +527,6 @@ packages:
 
   /ast-types-flow@0.0.7:
     resolution: {integrity: sha512-eBvWn1lvIApYMhzQMsu9ciLfkBY499mFZlNqG+/9WR7PVlroQw0vG30cOQQbaKz3sCEc44TAOu2ykzqXSNnwag==}
-    dev: false
-
-  /async-listen@3.0.0:
-    resolution: {integrity: sha512-V+SsTpDqkrWTimiotsyl33ePSjA5/KrithwupuvJ6ztsqPvGv6ge4OredFhPffVXiLN/QUWvE0XcqJaYgt6fOg==}
-    engines: {node: '>= 14'}
     dev: false
 
   /autoprefixer@10.4.14(postcss@8.4.23):
@@ -1372,6 +1367,15 @@ packages:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
     dev: false
 
+  /fs-extra@11.1.1:
+    resolution: {integrity: sha512-MGIE4HOvQCeUCzmlHs0vXpih4ysz4wg9qiSAu6cd42lVwPbTM1TjV7RusoyQqMmk/95gdQZX72u+YW+c3eEpFQ==}
+    engines: {node: '>=14.14'}
+    dependencies:
+      graceful-fs: 4.2.11
+      jsonfile: 6.1.0
+      universalify: 2.0.0
+    dev: true
+
   /fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
     dev: false
@@ -1524,7 +1528,6 @@ packages:
 
   /graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
-    dev: false
 
   /graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
@@ -1845,6 +1848,14 @@ packages:
     dependencies:
       minimist: 1.2.8
     dev: false
+
+  /jsonfile@6.1.0:
+    resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
+    dependencies:
+      universalify: 2.0.0
+    optionalDependencies:
+      graceful-fs: 4.2.11
+    dev: true
 
   /jsx-ast-utils@3.3.3:
     resolution: {integrity: sha512-fYQHZTZ8jSfmWZ0iyzfwiU4WDX4HpHbMCZ3gPlWYiCl3BoeOTsqKBqnTVfH2rYT7eP5c3sVbeSPHnnJOaTrWiw==}
@@ -2815,6 +2826,11 @@ packages:
       has-symbols: 1.0.3
       which-boxed-primitive: 1.0.2
     dev: false
+
+  /universalify@2.0.0:
+    resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
+    engines: {node: '>= 10.0.0'}
+    dev: true
 
   /untildify@4.0.0:
     resolution: {integrity: sha512-KK8xQ1mkzZeg9inewmFVDNkg3l5LUhoq9kN6iWYB/CC9YMG8HA+c1Q8HwDe6dEX7kErrEVNVBO3fWsVq5iDgtw==}

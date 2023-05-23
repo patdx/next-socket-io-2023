@@ -37,6 +37,8 @@ If we combine these together, perhaps we can start a socket.io server on another
 
 It turns out this almost works!
 
+Except, it works in server mode but not in standalone mode. In standalone mode, basically the implementation https://github.com/vercel/next.js/blob/canary/packages/next/src/server/lib/render-server-standalone.ts does not expose a way to pass the "upgrade" event from the Node Http Server
+
 ## Enable instrumentation
 
 Copy the `src/server/socket-server.ts` file and the following instrumentation file:

@@ -1,0 +1,4 @@
+#!/command/execlineb -P
+cd /app
+export PORT 3500
+node server.js

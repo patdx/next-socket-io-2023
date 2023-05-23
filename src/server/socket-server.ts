@@ -2,19 +2,19 @@ import { createServer } from 'http';
 import { pid } from 'node:process';
 import { threadId } from 'node:worker_threads';
 import { Server } from 'socket.io';
-import { listen } from 'async-listen';
-import { checkPort } from 'get-port-please';
+// import { listen } from 'async-listen';
+// import { checkPort } from 'get-port-please';
 
 const PORT = 3200;
 
 export async function initChatServer() {
-  const portAvailable = await checkPort(PORT);
+  // const portAvailable = await checkPort(PORT);
 
-  if (!portAvailable) {
-    console.warn(
-      `Port ${PORT} is already in use, will not spawn another websocket server.`
-    );
-  }
+  // if (!portAvailable) {
+  //   console.warn(
+  //     `Port ${PORT} is already in use, will not spawn another websocket server.`
+  //   );
+  // }
 
   console.log(
     `Starting socket.io server with runtime=${process.env.NEXT_RUNTIME} pid=${pid} threadId=${threadId} port=${PORT} jestWorkerId=${process.env.JEST_WORKER_ID}`
@@ -43,10 +43,7 @@ export async function initChatServer() {
     });
   });
 
-  try {
-    const address = await listen(httpServer, PORT);
-    console.log(`Socket.io server listening on ${address}`);
-  } catch (err) {
+  httpServer.on('error', (err) => {
     if ((err as any).code === 'EADDRINUSE') {
       console.warn(
         `Tried to start a server on port ${PORT} but it is already in use`
@@ -55,5 +52,9 @@ export async function initChatServer() {
       console.warn(`Failed to start a server for unknown reason:`);
       console.log(err);
     }
-  }
+  });
+
+  httpServer.listen(PORT, () => {
+    console.log(`Socket.io listening on port ${PORT}`);
+  });
 }

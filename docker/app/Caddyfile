@@ -1,0 +1,7 @@
+:3000 {
+	handle /socket.io/ {
+		reverse_proxy localhost:3200
+	}
+
+	reverse_proxy localhost:3500
+}
