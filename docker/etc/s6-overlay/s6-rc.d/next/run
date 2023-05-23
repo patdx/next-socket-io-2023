@@ -1,4 +1,5 @@
 #!/command/execlineb -P
 cd /app
 export PORT 3500
+s6-setuidgid nextjs
 node server.js

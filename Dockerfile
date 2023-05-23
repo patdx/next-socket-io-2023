@@ -63,7 +63,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 COPY docker /
 
-USER nextjs
+# USER nextjs
 
 EXPOSE 3000
 
