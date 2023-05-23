@@ -1,4 +1,4 @@
 #!/command/execlineb -P
-s6-setuidgid nextjs
+# s6-setuidgid nextjs
 cd /app
 caddy run Caddyfile
